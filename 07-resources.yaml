@@ -5,7 +5,7 @@ kind: Pod
 metadata: 
   name: resources
   labels:
-  project: roboshop
+    project: roboshop
 spec:
   containers:
   - name: nginx
