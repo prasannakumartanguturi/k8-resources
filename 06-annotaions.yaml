@@ -1,0 +1,15 @@
+# labels and annotations are used for provide metadata only but in annotation no limit for charactes lenghth and
+# we can use special characters and we can also select external resorces means resources available outside of cluster
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations-demo
+  annotations:
+    jenkins.url: "http://jenkins.joindevops.com/build/job/5"
+    imageregistry: "https://hub.docker.com/"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
