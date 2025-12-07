@@ -12,10 +12,10 @@ metadata:
   labels:
     project: roboshop
     purpose: service
-  spec:
-    containers:
-    - name: nginx
-      image: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
   
   ## create service with same labels
 apiVersion: v1
