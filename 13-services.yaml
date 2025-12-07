@@ -1,0 +1,34 @@
+# services are used to acheive po to pod communication and also act as load balancer
+# 1) clusterIP(default), 2) nodePort, 3) LoadBalancer
+
+# if pod and service labels are same then all those pods will connect to that service
+
+apiVersion: v1
+kind: pod
+metadata:
+  name: servicepod
+  namespace: roboshop
+  labels:
+    project: roboshop
+    purpose: service
+  spec:
+    containers:
+    - name: nginx
+      image: nginx
+  
+  ## create service with same labels
+apiVersion: v1
+kind: service
+metadata:
+  name: pod-service
+
+spec:
+  selector:
+    # use same labels given in pod
+    project: roboshop
+    purpose: service
+  ports:
+    - protocol: TCP
+      port: 80 # serviceport
+      targetport: 80 # container port
+      
