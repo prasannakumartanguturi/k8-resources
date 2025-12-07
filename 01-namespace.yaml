@@ -1,0 +1,7 @@
+# namespace is isolated workspace to create resources
+apiVersion: v1
+kind: Namespace 
+metadata:
+  name: roboshop
+  labels: 
+    purpose: roboshop
