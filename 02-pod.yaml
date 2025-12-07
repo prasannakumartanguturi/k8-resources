@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata: 
   name: nginx
-  nameSpace: roboshop
+  namespace: roboshop
   # kubectl config set-context --current --namespace=roboshop -> to make out roboshopnamespace as default namespace
   labels:
     purpose: niginx
