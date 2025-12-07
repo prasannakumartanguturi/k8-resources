@@ -1,0 +1,13 @@
+apiVeersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+  # nameSpace: roboshop
+  label:
+    purpose: niginx
+spec: 
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerport: 80
