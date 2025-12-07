@@ -1,0 +1,19 @@
+# resources are used to used to limit the resources used by container
+
+apiVersion: v1
+kind: pod
+metadata: 
+  name: resources
+  labels:
+  project: roboshop
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:
+        memory: "70Mi"
+        cpu: "80m"
+      limit:
+        memory: "900Mi"
+        cpu: "100m"
