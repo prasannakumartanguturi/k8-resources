@@ -3,7 +3,7 @@ kind: Pod
 metadata: 
   name: nginx
   # nameSpace: roboshop
-  label:
+  labels:
     purpose: niginx
 spec: 
   containers:
