@@ -1,7 +1,7 @@
 # resources are used to used to limit the resources used by container
 
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata: 
   name: resources
   labels:
