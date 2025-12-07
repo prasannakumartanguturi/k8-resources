@@ -11,7 +11,8 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    purpose: service
+    purpose: loadbal-podcommu
+    environment: dev
 spec:
   containers:
   - name: nginx
@@ -24,7 +25,8 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    purpose: service
+    purpose: loadbal-podcommu
+    environment: dev
 spec:
   containers:
   - name: almalinux
@@ -43,7 +45,8 @@ spec:
   selector:
     # use same labels given in pod
     project: roboshop
-    purpose: service
+    purpose: loadbal-podcommu
+    environment: dev
   ports:
     - protocol: TCP
       port: 80 # serviceport
