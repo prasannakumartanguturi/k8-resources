@@ -18,7 +18,7 @@ metadata:
   
   ## create service with same labels
 apiVersion: v1
-kind: service
+kind: Service
 metadata:
   name: pod-service
 
@@ -31,4 +31,4 @@ spec:
     - protocol: TCP
       port: 80 # serviceport
       targetport: 80 # container port
-      
+
