@@ -1,56 +1,27 @@
-# services are used to acheive po to pod communication and also act as load balancer
-# 1) clusterIP(default), 2) nodePort, 3) LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    project: roboshop
+    component: frontend
+    environment: dev
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port
 
-# if pod and service labels are same then all those pods will connect to that service
-
-# clusteIP service will not expose to outside world, it will be with in cluster
 apiVersion: v1
 kind: Pod
 metadata:
-  name: servicepod1
-  namespace: roboshop
+  name: service-demo
+  # These labels are used to register this pod with service
   labels:
     project: roboshop
-    purpose: loadbal-podcommu
+    component: frontend
     environment: dev
 spec:
   containers:
   - name: nginx
     image: nginx
-
-apiVersion: v1
-kind: Pod
-metadata:
-  name: servicepod2
-  namespace: roboshop
-  labels:
-    project: roboshop
-    purpose: loadbal-podcommu
-    environment: dev
-spec:
-  containers:
-  - name: almalinux
-    image: almalinux:9
-    command: ["sleep","1000"]
-  
-  ## create service with same labels
-apiVersion: v1
-kind: Service
-metadata:
-  name: pod-service
-  namespace: roboshop
-
-spec:
-  type: ClusterIP # Default type, but good to be explicit
-  selector:
-    # use same labels given in pod
-    project: roboshop
-    purpose: loadbal-podcommu
-    environment: dev
-  ports:
-    - protocol: TCP
-      port: 80 # serviceport
-      targetPort: 80 # container port
-
-# You can now access this service from other pods within the cluster using its name nginx-clusterip-service:80 or its assigned ClusterIP address. 
-
