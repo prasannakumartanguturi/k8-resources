@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-app-config
+  namespace: default
+data:
+  environment: "production"
+  # Multi-line configuration as a single key
+  nginx.conf: |
+    server {
+      listen 80;
+      location / {
+        proxy_pass http://my-service;
+      }
+    }
