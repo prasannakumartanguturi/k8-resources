@@ -4,7 +4,7 @@
 # if pod and service labels are same then all those pods will connect to that service
 
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata:
   name: servicepod
   namespace: roboshop
